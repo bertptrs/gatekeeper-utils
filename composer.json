@@ -1,0 +1,20 @@
+{
+    "name": "solution-web/gatekeeper-utils",
+    "description": "A collection of commands, filters and utilities for the gatekeeper module in the Mako PHP framework.",
+    "type": "mako-package",
+    "require": {
+        "mako/framework": "~4.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bert Peters",
+            "email": "bert@solution-web.nl"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"solutionweb\\gatekeeper\\utils\\": "src/"
+		}
+	}
+}

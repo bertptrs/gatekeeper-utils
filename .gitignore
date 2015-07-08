@@ -1,0 +1,6 @@
+# Composer specific
+vendor
+composer.lock
+
+# IDE files
+nbproject
