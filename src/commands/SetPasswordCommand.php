@@ -11,6 +11,12 @@ class SetPasswordCommand extends GatekeeperCommand
 {
     protected $commandInformation = [
         "description" => "Set the password for a specific user.",
+        "arguments" => [
+            "user" => [
+                "description" => "The user identifier to change the password for. Can be an email, username or id.",
+                "optional" => false,
+            ],
+        ],
     ];
 
     /**

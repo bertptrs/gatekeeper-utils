@@ -4,12 +4,18 @@ namespace solutionweb\gatekeeper\utils\commands;
 /**
  * Command to (de)activate a user.
  *
- * @author bpeters
+ * @author Bert Peters <bert@solution-web.nl>
  */
 class ActivateUserCommand extends GatekeeperCommand
 {
     protected $commandInformation = [
         "description" => "Activate a named user.",
+        "arguments" => [
+            "user" => [
+                "description" => "The user identifier to change the password for. Can be an email, username or id.",
+                "optional" => false,
+            ],
+        ],
         "options" => [
             "deactivate" => [
                 "description" => "Deactivate instead of activate.",

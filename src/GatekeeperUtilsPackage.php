@@ -5,11 +5,22 @@ namespace solutionweb\gatekeeper\utils;
 use mako\application\Package;
 
 /**
- * Description of GatekeeperUtilsPackage
+ * Package registraion class.
  *
  * @author Bert Peters <bert@solution-web.nl>
  */
 class GatekeeperUtilsPackage extends Package
 {
+
+
     protected $packageName = "solution-web/gatekeeper-utils";
+
+    /**
+     * Register the available commands.
+     */
+    protected $commands = [
+        "gatekeeper::user.create" => 'solutionweb\gatekeeper\utils\commands\CreateUserCommand',
+        "gatekeeper::user.activate" => 'solutionweb\gatekeeper\utils\commands\ActivateUserCommand',
+        "gatekeeper::user.password" => 'solutionweb\gatekeeper\utils\commands\SetPasswordCommand',
+    ];
 }
