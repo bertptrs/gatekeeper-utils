@@ -38,7 +38,7 @@ Currently, there are three supported commands. These commands are registe-red au
 For more information about the workings and options, you can use the --help flag, like so:
 
 ```
-$ php app/reactor gatekeeper::user.create --help                                                          [21:19:18]
+$ php app/reactor gatekeeper::user.create --help
 
 Command:
 

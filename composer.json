@@ -12,6 +12,9 @@
             "email": "bert@solution-web.nl"
         }
     ],
+    "keywords": [
+      "framework", "mako", "gatekeeper"
+    ],
 	"autoload": {
 		"psr-4": {
 			"solutionweb\\gatekeeper\\utils\\": "src/"
