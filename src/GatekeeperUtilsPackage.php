@@ -12,7 +12,6 @@ use mako\application\Package;
 class GatekeeperUtilsPackage extends Package
 {
 
-
     protected $packageName = "solution-web/gatekeeper-utils";
 
     /**
@@ -22,5 +21,8 @@ class GatekeeperUtilsPackage extends Package
         "gatekeeper::user.create" => 'solutionweb\gatekeeper\utils\commands\CreateUserCommand',
         "gatekeeper::user.activate" => 'solutionweb\gatekeeper\utils\commands\ActivateUserCommand',
         "gatekeeper::user.password" => 'solutionweb\gatekeeper\utils\commands\SetPasswordCommand',
+        "gatekeeper::group.create" => 'solutionweb\gatekeeper\utils\commands\CreateGroupCommand',
+        "gatekeeper::group.delete" => 'solutionweb\gatekeeper\utils\commands\DeleteGroupCommand',
+        "gatekeeper::group.member" => 'solutionweb\gatekeeper\utils\commands\GroupMemberCommand',
     ];
 }

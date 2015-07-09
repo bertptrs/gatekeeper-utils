@@ -34,6 +34,9 @@ Currently, there are three supported commands. These commands are registe-red au
 - `user.create` helps you create new users.
 - `user.activate` (de)activates user accounts.
 - `user.password` can set new passwords for users.
+- `group.create` creates new groups.
+- `group.member` can add and remove members in groups.
+- `group.delete` deletes groups.
 
 For more information about the workings and options, you can use the --help flag, like so:
 

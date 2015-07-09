@@ -7,6 +7,7 @@ use mako\cli\input\Input;
 use mako\cli\output\Output;
 use mako\auth\Gatekeeper;
 use mako\auth\user\UserInterface;
+use mako\auth\group\GroupInterface;
 
 /**
  * Abstract base class for a gatekeeper command.
@@ -58,6 +59,26 @@ abstract class GatekeeperCommand extends Command
 
         // Should be a username now.
         return $userProvider->getByUsername($what);
+    }
+
+    /**
+     * Get a group by any identifier.
+     *
+     * @param string|int $identifier An identifier for the group, ID or name.
+     * @return GroupInterface|boolean The requested group, or false.
+     */
+    protected function getGroupByAnything($identifier)
+    {
+        $groupProvider = $this->gatekeeper->getGroupProvider();
+
+        if (is_numeric($identifier)) {
+            $group = $groupProvider->getById($identifier);
+            if ($group !== false) {
+                return $group;
+            }
+        }
+
+        return $groupProvider->getByName($identifier);
     }
 
 }
