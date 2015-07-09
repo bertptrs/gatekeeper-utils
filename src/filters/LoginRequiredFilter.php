@@ -30,7 +30,6 @@ class LoginRequiredFilter
 
 	public function __construct(Request $request, Response $response, Gatekeeper $gatekeeper, URLBuilder $urlBuilder, Session $session)
 	{
-		parent::__construct($request, $response);
 		$this->gatekeeper = $gatekeeper;
 		$this->urlBuilder = $urlBuilder;
 		$this->session = $session;
