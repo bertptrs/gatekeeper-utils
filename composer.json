@@ -1,5 +1,5 @@
 {
-	"name": "solution-web/gatekeeper-utils",
+	"name": "bertptrs/gatekeeper-utils",
 	"description": "A collection of commands, filters and utilities for the gatekeeper module in the Mako PHP framework.",
 	"type": "mako-package",
 	"require": {

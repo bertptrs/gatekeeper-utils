@@ -7,7 +7,7 @@ For now, the package contains some commands and a filter, but more will be added
 Installation is done using [composer](https://getcomposer.org/). The package has a compatible Mako version specified so you don't have to worry about which version to use.
 
 ```
-composer require solution-web/gatekeeper-utils:*
+composer require bertptrs/gatekeeper-utils:*
 ```
 
 After that, you need to register the package to be loaded. This is specified in the `app/config/application.php` file.
