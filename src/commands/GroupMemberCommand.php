@@ -9,7 +9,6 @@ namespace solutionweb\gatekeeper\utils\commands;
  */
 class GroupMemberCommand extends GatekeeperCommand
 {
-
     protected $commandInformation = [
         "description" => "Add or remove users to and from a group.",
         "arguments" => [
@@ -37,7 +36,8 @@ class GroupMemberCommand extends GatekeeperCommand
      * @param string $arg3 An identifier for a user.
      * @param boolean $remove Whether or not to remove the user from the group instead of adding him.
      */
-    public function execute($arg2, $arg3, $remove = false) {
+    public function execute($arg2, $arg3, $remove = false)
+    {
         $group = $this->getGroupByAnything($arg2);
         if ($group === false) {
             $this->error("No such group.");

@@ -9,7 +9,6 @@ namespace solutionweb\gatekeeper\utils\commands;
  */
 class CreateUserCommand extends GatekeeperCommand
 {
-
     protected $commandInformation = [
         "description" => "Create a new user.",
         "options" => [
@@ -45,5 +44,4 @@ class CreateUserCommand extends GatekeeperCommand
 
         $this->write("User " . $user->getId() . " created.");
     }
-
 }

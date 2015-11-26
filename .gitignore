@@ -2,5 +2,8 @@
 vendor
 composer.lock
 
+# PHP Codestyle
+.php_cs.cache
+
 # IDE files
 nbproject

@@ -11,7 +11,6 @@ use mako\application\Package;
  */
 class GatekeeperUtilsPackage extends Package
 {
-
     protected $packageName = "solution-web/gatekeeper-utils";
 
     /**

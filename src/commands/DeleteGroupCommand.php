@@ -9,7 +9,6 @@ namespace solutionweb\gatekeeper\utils\commands;
  */
 class DeleteGroupCommand extends GatekeeperCommand
 {
-
     protected $commandInformation = [
         "description" => "Delete a group.",
         "arguments" => [
@@ -48,5 +47,4 @@ class DeleteGroupCommand extends GatekeeperCommand
             }
         }
     }
-
 }

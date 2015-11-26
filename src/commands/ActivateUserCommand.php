@@ -1,6 +1,7 @@
 <?php
 
 namespace solutionweb\gatekeeper\utils\commands;
+
 /**
  * Command to (de)activate a user.
  *

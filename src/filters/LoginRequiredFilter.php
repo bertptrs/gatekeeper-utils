@@ -15,30 +15,30 @@ use mako\session\Session;
  */
 class LoginRequiredFilter
 {
-	/**
-	 * @var Gatekeeper
-	 */
-	protected $gatekeeper;
-	/**
-	 * @var URLBuilder
-	 */
-	protected $urlBuilder;
-	/**
-	 * @var Session
-	 */
-	protected $session;
+    /**
+     * @var Gatekeeper
+     */
+    protected $gatekeeper;
+    /**
+     * @var URLBuilder
+     */
+    protected $urlBuilder;
+    /**
+     * @var Session
+     */
+    protected $session;
 
-	public function __construct(Request $request, Response $response, Gatekeeper $gatekeeper, URLBuilder $urlBuilder, Session $session)
-	{
-		$this->gatekeeper = $gatekeeper;
-		$this->urlBuilder = $urlBuilder;
-		$this->session = $session;
-	}
+    public function __construct(Request $request, Response $response, Gatekeeper $gatekeeper, URLBuilder $urlBuilder, Session $session)
+    {
+        $this->gatekeeper = $gatekeeper;
+        $this->urlBuilder = $urlBuilder;
+        $this->session = $session;
+    }
 
-	public function filter()
-	{
-		if ($this->gatekeeper->isGuest()) {
-			return $this->gatekeeper->basicAuth();
-		}
-	}
+    public function filter()
+    {
+        if ($this->gatekeeper->isGuest()) {
+            return $this->gatekeeper->basicAuth();
+        }
+    }
 }

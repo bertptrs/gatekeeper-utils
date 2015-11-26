@@ -16,7 +16,6 @@ use mako\auth\group\GroupInterface;
  */
 abstract class GatekeeperCommand extends Command
 {
-
     /**
      * Gatekeeper instance.
      *
@@ -80,5 +79,4 @@ abstract class GatekeeperCommand extends Command
 
         return $groupProvider->getByName($identifier);
     }
-
 }
