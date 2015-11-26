@@ -1,9 +1,8 @@
 {
 	"name": "bertptrs/gatekeeper-utils",
 	"description": "A collection of commands, filters and utilities for the gatekeeper module in the Mako PHP framework.",
-	"type": "mako-package",
 	"require": {
-		"mako/framework": "~4.5"
+		"mako/framework": "^4.5"
 	},
 	"license": "MIT",
 	"authors": [
