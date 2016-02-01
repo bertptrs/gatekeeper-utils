@@ -36,9 +36,11 @@ class SetPasswordCommand extends GatekeeperCommand
         $password = $this->secret("Enter new user password", null, false);
         if ($this->secret("Repeat user password", null, false) != $password) {
             $this->error("Password mismatch.");
+            return;
         }
 
         $user->setPassword($password);
+        $user->save();
 
         $this->write("Password succesfully changed.");
     }

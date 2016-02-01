@@ -40,5 +40,6 @@ class ActivateUserCommand extends GatekeeperCommand
             $user->activate();
             $this->write("User " . $user->getId() . " activated.");
         }
+        $user->save();
     }
 }
