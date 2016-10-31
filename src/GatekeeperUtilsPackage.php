@@ -17,7 +17,7 @@ use solutionweb\gatekeeper\utils\commands\SetPasswordCommand;
  */
 class GatekeeperUtilsPackage extends Package
 {
-    protected $packageName = "solution-web/gatekeeper-utils";
+    protected $packageName = "bertptrs/gatekeeper-utils";
 
     /**
      * Register the available commands.
