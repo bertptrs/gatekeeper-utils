@@ -2,6 +2,8 @@
 
 namespace solutionweb\gatekeeper\utils\commands;
 
+use mako\gatekeeper\entities\user\UserEntityInterface;
+
 /**
  * Command to create a user.
  *
@@ -58,7 +60,7 @@ class CreateUserCommand extends GatekeeperCommand
         }
 
 
-
+        /** @var UserEntityInterface $user */
         $user = $this->gatekeeper->createUser($email, $username, $password, !$noactivate);
 
         $this->write("User " . $user->getId() . " created.");

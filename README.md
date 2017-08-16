@@ -30,7 +30,7 @@ return [
 I recommend that you register the package in the `core` packages, but if you only use the filters, or just the commands, you could register it in the `web` and `cli` packages respectively.
 
 ## Available commands
-Currently, there are three supported commands. These commands are registe-red automatically when the plugin is loaded. All commands are prefixed with `gatekeeper::` to prevent naming collisions.
+Currently, there are three supported commands. These commands are registered automatically when the plugin is loaded. All commands are prefixed with `gatekeeper::` to prevent naming collisions.
 - `user.create` helps you create new users.
 - `user.activate` (de)activates user accounts.
 - `user.password` can set new passwords for users.
@@ -59,8 +59,3 @@ Options:
 | noactivate | Do not activate the user by default. | true     |
 ----------------------------------------------------------------
 ```
-
-## Available filters
-Currently, there is only one filter available. The `LoginRequiredFilter` can be applied to routes like an admin panel, to force a login. It checks whether the user is logged in, and if not, returns a HTTP 401 authentication required.
-
-Unfortunately, it is not possible to register filters from the package itself. The filters need to be registered manually, by adding it to `app/routes/filters.php`. The full class name is `solutionweb\gatekeeper\utils\filters\LoginRequiredFilter.php`.

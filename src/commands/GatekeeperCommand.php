@@ -2,12 +2,12 @@
 
 namespace solutionweb\gatekeeper\utils\commands;
 
+use mako\gatekeeper\Authentication;
+use mako\gatekeeper\entities\group\GroupEntityInterface;
+use mako\gatekeeper\entities\user\UserEntityInterface;
 use mako\reactor\Command;
 use mako\cli\input\Input;
 use mako\cli\output\Output;
-use mako\auth\Gatekeeper;
-use mako\auth\user\UserInterface;
-use mako\auth\group\GroupInterface;
 
 /**
  * Abstract base class for a gatekeeper command.
@@ -19,11 +19,11 @@ abstract class GatekeeperCommand extends Command
     /**
      * Gatekeeper instance.
      *
-     * @var Gatekeeper
+     * @var Authentication
      */
     protected $gatekeeper;
 
-    public function __construct(Input $input, Output $output, Gatekeeper $gatekeeper)
+    public function __construct(Input $input, Output $output, Authentication $gatekeeper)
     {
         parent::__construct($input, $output);
 
@@ -34,49 +34,24 @@ abstract class GatekeeperCommand extends Command
      * Get a user.
      *
      * @param string|int $what An identifier for the user; either an ID, username or email.
-     * @return UserInterface|boolean The user found, or boolean false if no such user.
+     * @return UserEntityInterface|boolean The user found, or boolean false if no such user.
      */
     protected function getUserByAnything($what)
     {
-        $userProvider = $this->gatekeeper->getUserProvider();
+        $userProvider = $this->gatekeeper->getUserRepository();
 
-        // First, check if we have been given an ID.
-        if (is_numeric($what)) {
-            $user = $userProvider->getById((int) $what);
-            if ($user !== false) {
-                return $user;
-            }
-        }
-
-        // Check if we have an email and use that.
-        if (filter_var($what, FILTER_VALIDATE_EMAIL) !== false) {
-            $user = $userProvider->getByEmail($what);
-            if ($user !== false) {
-                return $user;
-            }
-        }
-
-        // Should be a username now.
-        return $userProvider->getByUsername($what);
+        return $userProvider->getByIdentifier($what);
     }
 
     /**
      * Get a group by any identifier.
      *
      * @param string|int $identifier An identifier for the group, ID or name.
-     * @return GroupInterface|boolean The requested group, or false.
+     * @return GroupEntityInterface|boolean The requested group, or false.
      */
     protected function getGroupByAnything($identifier)
     {
-        $groupProvider = $this->gatekeeper->getGroupProvider();
-
-        if (is_numeric($identifier)) {
-            $group = $groupProvider->getById($identifier);
-            if ($group !== false) {
-                return $group;
-            }
-        }
-
-        return $groupProvider->getByName($identifier);
+        return $this->gatekeeper->getGroupRepository()
+            ->getByIdentifier($identifier);
     }
 }

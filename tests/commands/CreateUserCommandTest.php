@@ -13,6 +13,8 @@ use mako\auth\Gatekeeper;
 use mako\auth\user\UserInterface;
 use mako\cli\input\Input;
 use mako\cli\output\Output;
+use mako\gatekeeper\Authentication;
+use mako\gatekeeper\entities\user\UserEntityInterface;
 use solutionweb\gatekeeper\utils\commands\CreateUserCommand;
 
 class CreateUserCommandTest extends \PHPUnit_Framework_TestCase
@@ -22,10 +24,14 @@ class CreateUserCommandTest extends \PHPUnit_Framework_TestCase
         $input = $this->createMock(Input::class);
         $output = $this->createMock(Output::class);
 
-        $user = $this->createMock(UserInterface::class);
+        $user = $this->createMock(UserEntityInterface::class);
         $user->expects($this->once())->method('getId')->willReturn(42);
-        
-        $gatekeeper = $this->createMock(Gatekeeper::class);
+
+        $gatekeeper = $this->getMockBuilder(Authentication::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['createUser'])
+            ->getMock();
+
         $gatekeeper->expects($this->once())
             ->method('createUser')
             ->with('jdoe', 'john.doe@example.org', 'foobar', true)
